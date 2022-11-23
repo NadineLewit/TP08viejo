@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "¡Bienvenid@ a OrtFlix!";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="fontortflix">
+                    <div class="center">
+                        <br><br><br><br><br><h1>@ViewData["Title"]</h1><br><br><br><br>
+                        <a href='@Url.Action("PonerUsuario")'>
+                            <button class="button"  style="vertical-align:middle"><span>Ingrese su usuario </span></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <br><img src = '@Url.Content("~/imagenes/fotoPeliculas.jpg")' height="100%" width="100%">
+            </div>
+        </div>
+    </div>
+</body>

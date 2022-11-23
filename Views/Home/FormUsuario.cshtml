@@ -1,0 +1,26 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="fontortflix">
+                    <div class="center">
+                        <br><br><br><br><br><h1>@ViewData["Title"]</h1><br><br><br><br>
+                        <form method="post" action='@Url.Action("GuardarUsuario","Home")'>
+                            <br><br><br><label for="fname"> <h3>Usuario</h3> </label>
+                            <input type="text" name="Nombre" required>
+                            <a href='@Url.Action("PonerUsuario")'>
+                                <br><br><button class="button2"  style="vertical-align:middle"><span> Ingresar </span></button>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <br><img src = '@Url.Content("~/imagenes/fotoPeliculas.jpg")' height="100%" width="100%"><br>
+            </div>
+        </div>
+    </div>
+</body>

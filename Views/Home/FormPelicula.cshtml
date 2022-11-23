@@ -1,0 +1,44 @@
+<div class="fondo">
+    <div class="fontortflix">
+    <div class= "center">
+        <br>
+        <h1> Agregue una pelicula </h1>
+    </div>
+ 
+    <form method="post" action='@Url.Action("GuardarPelicula", "Home")'>
+        <input type="hidden" name="IdPelicula" value=@ViewBag.IdPelicula>
+ 
+        <div class="mb-3">
+            <label class="form-label"> Nombre de la pelicula </label>
+            <input type="text" name="Nombre" class="form-control" required>
+        </div>
+ 
+        <div class="mb-3">
+            <label class="form-label"> Ingrese link de la foto: </label>
+            <input type="url" name="Foto" class="form-control" required><br>
+        </div>
+       
+        <div class="mb-3">
+            <label class="form-label"> Descripcion </label>
+            <input type="text" name="Descripcion" class="form-control" required>
+        </div>
+ 
+        <div class="mb-3">
+            <label for="customRange3" class="form-label"> Estrellas </label>
+            <input type="range" name="Estrellas" class="form-range" min="0" max="5" step="1" required>
+        </div>
+ 
+        <div class="mb-3">
+            <select class="form-select" name = "FkCategoria" multiple aria-label="multiple select example">
+                <option selected> Elija la categoria</option>
+            @foreach (Categoria cat in ViewBag.Categorias)
+            {
+                <option value="@cat.IdCategoria">@cat.Nombre</option>
+            }
+            </select>
+        </div>
+ 
+        <button type="submit" class="btn btn-primary" value="Enviar"> Siguiente </button>
+    </form>
+    </div>
+</div>

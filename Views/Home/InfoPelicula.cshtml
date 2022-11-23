@@ -1,0 +1,69 @@
+<div class="fontortflix">
+<h1> @ViewBag.InfoPelicula.Nombre </h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <div class="center">
+          <img src= "@ViewBag.InfoPelicula.Foto" width=700px height=500px>
+        </div>
+      </div>
+      <div class="col"><br>
+        <div class="align-space-between-grid">
+            <div class="my-cell">
+              <div class="textoinfo">
+                <u><b>Descripción</b></u><br>
+                @ViewBag.InfoPelicula.Descripcion
+              </div>
+            </div>
+            <br><br><br>
+            <div class="my-cell">
+              <div class="textoinfo">
+                <u><b>Estrellas</b></u><br>
+                @ViewBag.InfoPelicula.Estrellas 
+              </div>
+            </div>
+            <br><br><br>
+            <div class="my-cell">
+              <div class="textoinfo">
+                <u><b>Categoria</b></u><br>
+                @ViewBag.InfoPelicula.NombreCategoria 
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br><br>
+<div class="center">
+  <h2> Reseñas </h2>
+</div>
+<form method="post" action='@Url.Action("AgregarReseña","Home")'>
+  <input type="hidden" name="FkUsuario" value=@ViewBag.FkUsuario>
+  <input type="hidden" name="FkPelicula" value=@ViewBag.IdPelicula>
+        <div class="mb-3">
+            <label class="form-label"> <h5> Escribe tu reseña: </h5> </label>
+            <input type="text" name="Contenido" required>
+        </div>
+        <button type="submit" class="button4"> Publicar </button>
+</form>
+
+<br><br>
+<h5> Reseñas de otros usuarios: </h5>
+    @foreach (Reseña r in ViewBag.Reseña)
+    {
+      @if( r.FkPelicula == ViewBag.IdPelicula)
+      {
+        <div class="col">
+          <div class="p-3 border bg-light"> <u>Usuario:</u> @r.NombreUsuario <br>@r.Contenido </div>
+        </div>
+      }
+       
+     
+     
+    }
+  </div>
+</div>
+</div>
+

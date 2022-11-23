@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TP08</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TP08.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<div class="fontortflix">
+    <header>
+        <div class="navbarra">
+            <nav class="nav">
+                <a class="nav-link" aria-current="page" href='@Url.Action("Home")'><img src='@Url.Content("~/imagenes/fotoLogo.png")' width="230" height="90"></a>
+                
+                    <a class="nav-link" href='@Url.Action("Index")'><br>
+                        <div class="textonav">
+                            Inicio
+                        </div>
+                    </a>
+                    <a class="nav-link" href='@Url.Action("AgregarPelicula", "Home")'><br>
+                        <div class="textonav">
+                            Agregar película
+                        </div>
+                    </a>
+                </div>
+            </nav>
+    </header>
+    
+    
+
+    <div class="fondo">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+ 
+        <footer class="footer text-muted">
+            <div class="container">
+                &copy; 2022 - OrtFlix - Nadine Lewit & Juliana Pansowy Furno
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+        </div>
+    </div>
+</html>
