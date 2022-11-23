@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Home";
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="fondo">
+    <div class="fontortflix">
+        <br><br><br>
+        <h2> Todas las Peliculas </h2>
+        <br>
+    
+
+ 
+@foreach(Pelicula p in ViewBag.Peliculas)
+{
+    <div class="column">
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="@p.Foto" height="160px"><br><br>
+            <div class="card-body">
+                <h5 class="card-title">@p.Nombre</h5>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <a href='@Url.Action("VerInfoPelicula", new{IdPelicula = @p.IdPelicula})' class="btn btn-secondary"> Ver informacion </a>
+                    <a href='@Url.Action("EliminarPelicula", new{IdPelicula = @p.IdPelicula})' class="btn btn-danger btn-sm"> Eliminar </a>
+                </small>
+            </div>
+        </div>
+    </div>
+    <br>
+    </div>
+    }
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="center">
+                        <br>
+                        <a href='@Url.Action("AgregarPelicula", new{IdPelicula = @ViewBag.IdPelicula})' class="button3"> Agregar película </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+    </div>
+</body>
